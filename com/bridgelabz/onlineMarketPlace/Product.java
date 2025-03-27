@@ -1,6 +1,6 @@
 package com.bridgelabz.onlineMarketPlace;
 
-abstract class Product<T> {
+public class Product<T extends ProductCategory>{
     private String name;
     private double price;
     private T category;
@@ -10,26 +10,19 @@ abstract class Product<T> {
         this.price = price;
         this.category = category;
     }
-
-    public String getName() {
+    public String getName(){
         return name;
     }
-
-    public double getPrice() {
+    public double getPrice(){
         return price;
     }
-
+    public void setPrice(double price){
+        this.price = price;
+    }
     public T getCategory() {
         return category;
     }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return getClass().getSimpleName() + " - Name: " + name + ", Price: $" + price + ", Category: " + category;
+    public void displayProduct(){
+        System.out.println("Product Name: "+name+"| Price: "+price+"| Category: "+category.getCategoryName());
     }
 }
-
